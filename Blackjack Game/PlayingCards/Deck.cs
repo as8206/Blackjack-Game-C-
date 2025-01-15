@@ -77,11 +77,11 @@ namespace Blackjack_Game.PlayingCards
                 return null;
             bool checkUsed = true;
             Random random = new Random();
-            int selector = random.Next(1, numOfCards);
+            int selector = random.Next(0, numOfCards);
 
             while (checkUsed == true)
             {
-                selector = random.Next(1, numOfCards);
+                selector = random.Next(0, numOfCards);
                 checkUsed = usedCard[selector];
             }
 

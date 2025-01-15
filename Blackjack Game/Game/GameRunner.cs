@@ -2,24 +2,28 @@
 {
     public class GameRunner
     {
-        private static string input = "initialized";
+        private static string? input;
 
         static void Main(string[] args)
         {
             Console.WriteLine("runner started"); //debug output
             World gameWorld = World.CreateWorld();
             Console.WriteLine("\n"); //create space between debugging output and normal output
+            input = "initialized";
 
-            //while (input.equalsIgnoreCase("y") == false && input.equalsIgnoreCase("n") == false)
-            //{
-            //    System.out.println("Would you like to play? Y/N");
-            //    input = in.next();
-            //}
+            while (input.Equals("y", StringComparison.OrdinalIgnoreCase) == false
+                && input.Equals("n", StringComparison.OrdinalIgnoreCase) == false)
+            {
+                Console.WriteLine("Would you like to play? Y/N");
+                input = Console.ReadLine();
+                if (input == null)
+                    input = "temp";
+            }
 
-            //if (input.equalsIgnoreCase("y"))
-            //{
-            gameWorld.StartGame();
-            //}
+            if (input.Equals("y", StringComparison.OrdinalIgnoreCase))
+            {
+                gameWorld.StartGame();
+            }
 
             Console.WriteLine("Game closing, goodbye!");
         }

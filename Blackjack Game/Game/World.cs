@@ -21,9 +21,9 @@ namespace Blackjack_Game.Game
 
             deck = new Deck();
 
-            //		printDeck(deck);
+            PrintDeck(deck);
 
-            //		printRandomCard(deck);
+            PrintRandomCard(deck);
         }
 
         public static World CreateWorld()
@@ -38,9 +38,10 @@ namespace Blackjack_Game.Game
 
         public void StartGame()
         {
-            Card card;
+            Card? card;
             int test = 1;
             int looper = 0;
+
             while (true && looper == 0)
             {
                 card = deck.DealCard();
@@ -73,23 +74,9 @@ namespace Blackjack_Game.Game
         private void PrintDeck(Deck deck)
         {
             Card[] cards = deck.GetCards();
-            //		String value = " value not pulled, an error has occured";
 
             foreach (Card current in cards)
             {
-                //			if(current.value == 1)
-                //				value = "Ace";
-                //			else if(current.value == 11)
-                //				value = "Jack";
-                //			else if (current.value == 12)
-                //				value = "Queen";
-                //			else if (current.value == 13)
-                //				value = "King";
-                //			else
-                //				value = Integer.toString(current.value);
-                //			
-                //			System.out.println(value + " of " + current.suit);
-
                 Console.WriteLine(current.GetCardName());
             }
         }
@@ -97,7 +84,6 @@ namespace Blackjack_Game.Game
         //outputs a random card from the given deck
         private void PrintRandomCard(Deck deck)
         {
-            //int selector = (int)(Math.random() * deck.getNumOfCards());
             Random random = new Random();
             int selector = random.Next(0, deck.GetNumOfCards());
 
