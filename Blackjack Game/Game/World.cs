@@ -26,7 +26,7 @@ namespace Blackjack_Game.Game
             //		printRandomCard(deck);
         }
 
-        public static World createWorld()
+        public static World CreateWorld()
 	    {
             if (gameWorld == null)
 			{
@@ -36,17 +36,17 @@ namespace Blackjack_Game.Game
 		    return gameWorld;
 	    }
 
-        public void startGame()
+        public void StartGame()
         {
             Card card;
             int test = 1;
             int looper = 0;
             while (true && looper == 0)
             {
-                card = deck.dealCard();
+                card = deck.DealCard();
                 if (card != null)
                 {
-                    Console.WriteLine(test + " Card Dealt was: " + card.getCardName());
+                    Console.WriteLine(test + " Card Dealt was: " + card.GetCardName());
                     test++;
                 }
                 else
@@ -54,14 +54,14 @@ namespace Blackjack_Game.Game
             }
 
             Console.WriteLine("reshuffle");
-            deck.reShuffle();
+            deck.ReShuffle();
 
             while (true && looper == 1)
             {
-                card = deck.dealCard();
+                card = deck.DealCard();
                 if (card != null)
                 {
-                    Console.WriteLine(test + " Card Dealt was: " + card.getCardName());
+                    Console.WriteLine(test + " Card Dealt was: " + card.GetCardName());
                     test++;
                 }
                 else
@@ -70,9 +70,9 @@ namespace Blackjack_Game.Game
         }
 
         //outputs a given deck to the console
-        private void printDeck(Deck deck)
+        private void PrintDeck(Deck deck)
         {
-            Card[] cards = deck.getCards();
+            Card[] cards = deck.GetCards();
             //		String value = " value not pulled, an error has occured";
 
             foreach (Card current in cards)
@@ -90,18 +90,18 @@ namespace Blackjack_Game.Game
                 //			
                 //			System.out.println(value + " of " + current.suit);
 
-                Console.WriteLine(current.getCardName());
+                Console.WriteLine(current.GetCardName());
             }
         }
 
         //outputs a random card from the given deck
-        private void printRandomCard(Deck deck)
+        private void PrintRandomCard(Deck deck)
         {
             //int selector = (int)(Math.random() * deck.getNumOfCards());
             Random random = new Random();
-            int selector = random.Next(0, deck.getNumOfCards());
+            int selector = random.Next(0, deck.GetNumOfCards());
 
-            Console.WriteLine("Card " + selector + " was selected: " + deck.getCardName(selector));
+            Console.WriteLine("Card " + selector + " was selected: " + deck.GetCardName(selector));
         }
     }
 }

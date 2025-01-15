@@ -54,26 +54,26 @@ namespace Blackjack_Game.PlayingCards
             }
         }
 
-        public Card[] getCards()
+        public Card[] GetCards()
         {
             return cards;
         }
 
-        public int getNumOfCards()
+        public int GetNumOfCards()
         {
             return numOfCards;
         }
 
-        public string getCardName(int card)
+        public string GetCardName(int card)
         {
-            return cards[card].getCardName();
+            return cards[card].GetCardName();
         }
 
         //returns a random card that has not been used
         //if all cards have already been used, returns null
-        public Card? dealCard()
+        public Card? DealCard()
         {
-            if (areAllCardsUsed())
+            if (AreAllCardsUsed())
                 return null;
             bool checkUsed = true;
             Random random = new Random();
@@ -91,7 +91,7 @@ namespace Blackjack_Game.PlayingCards
         }
 
         //sets all values in usedCard to true, essentially "reshuffling" the deck
-        public void reShuffle()
+        public void ReShuffle()
         {
             for (int cardNumber = 0; cardNumber < numOfCards; cardNumber++)
             {
@@ -100,7 +100,7 @@ namespace Blackjack_Game.PlayingCards
         }
 
         //checks if there are still usable cards in the deck
-        private bool areAllCardsUsed()
+        private bool AreAllCardsUsed()
         {
             //for (boolean check : usedCard)
             foreach (bool check in usedCard)

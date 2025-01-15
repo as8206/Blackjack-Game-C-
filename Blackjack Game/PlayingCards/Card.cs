@@ -18,7 +18,7 @@ namespace Blackjack_Game.PlayingCards
             this.value = value;
         }
 
-        public String getCardName()
+        public String GetCardName()
         {
             String cardName;
             String value = " value not pulled, an error has occured";

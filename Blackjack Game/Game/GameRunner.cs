@@ -7,7 +7,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("runner started"); //debug output
-            World gameWorld = World.createWorld();
+            World gameWorld = World.CreateWorld();
             Console.WriteLine("\n"); //create space between debugging output and normal output
 
             //while (input.equalsIgnoreCase("y") == false && input.equalsIgnoreCase("n") == false)
@@ -18,7 +18,7 @@
 
             //if (input.equalsIgnoreCase("y"))
             //{
-            gameWorld.startGame();
+            gameWorld.StartGame();
             //}
 
             Console.WriteLine("Game closing, goodbye!");
