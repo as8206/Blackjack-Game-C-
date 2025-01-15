@@ -20,10 +20,6 @@ namespace Blackjack_Game.Game
             Console.WriteLine("world called"); //debug output
 
             deck = new Deck();
-
-            PrintDeck(deck);
-
-            PrintRandomCard(deck);
         }
 
         public static World CreateWorld()
@@ -38,36 +34,7 @@ namespace Blackjack_Game.Game
 
         public void StartGame()
         {
-            Card? card;
-            int test = 1;
-            int looper = 0;
-
-            while (true && looper == 0)
-            {
-                card = deck.DealCard();
-                if (card != null)
-                {
-                    Console.WriteLine(test + " Card Dealt was: " + card.GetCardName());
-                    test++;
-                }
-                else
-                    looper++;
-            }
-
-            Console.WriteLine("reshuffle");
-            deck.ReShuffle();
-
-            while (true && looper == 1)
-            {
-                card = deck.DealCard();
-                if (card != null)
-                {
-                    Console.WriteLine(test + " Card Dealt was: " + card.GetCardName());
-                    test++;
-                }
-                else
-                    looper++;
-            }
+            
         }
 
         //outputs a given deck to the console

@@ -48,7 +48,7 @@ namespace Blackjack_Game.PlayingCards
 
                     cards[cardTracker] = new Card(suit, value);
                     usedCard[cardTracker] = false;
-                    //System.out.println("Created card number " + cardTracker); //debug output
+                    //Console.WriteLine("Created card number " + cardTracker); //debug output
                     cardTracker++;
                 }
             }

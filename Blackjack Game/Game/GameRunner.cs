@@ -6,9 +6,10 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine("runner started"); //debug output
+            //Console.WriteLine("runner started"); //debug output
+            //Console.WriteLine("\n"); //create space between debugging output and normal output
+
             World gameWorld = World.CreateWorld();
-            Console.WriteLine("\n"); //create space between debugging output and normal output
             input = "initialized";
 
             while (input.Equals("y", StringComparison.OrdinalIgnoreCase) == false
