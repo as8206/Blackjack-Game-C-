@@ -9,11 +9,12 @@ namespace Blackjack_Game.Game
 {
     internal class World
     {
-        private static World gameWorld;
+        private static World? gameWorld;
         private Deck deck;
         private static String input = "initialized";
 
         public static int numOfCards = 52;
+        public static int goalScore = 21;
 
         private World()
         {
