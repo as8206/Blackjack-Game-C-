@@ -8,7 +8,7 @@ using Blackjack_Game.PlayingCards;
 
 namespace Blackjack_Game.Players
 {
-    internal abstract class Player
+    internal class Player
     {
         private List<Card> hand = [];
 
@@ -17,7 +17,12 @@ namespace Blackjack_Game.Players
 
         }
 
-        internal int GetScore()
+        public void RecieveCard(Card card)
+        {
+            hand.Add(card);
+        }
+
+        public int GetScore()
         {
             int score = 0;
             int value = 0;
@@ -44,22 +49,6 @@ namespace Blackjack_Game.Players
             while (!solutionFound)
             {
                 scoreTemp = score + (aceIsEleven * 11) + aceIsOne;
-
-                //if (scoreTemp <= World.goalScore)
-                //{
-                //    score = scoreTemp;
-                //    solutionFound = true;
-                //}
-                //else if (scoreTemp > World.goalScore && aceIsEleven > 0)
-                //{
-                //    aceIsEleven--;
-                //    aceIsOne++;
-                //}
-                //else
-                //{
-                //    score = scoreTemp;
-                //    solutionFound = true;
-                //}
 
                 if (scoreTemp > World.goalScore && aceIsEleven > 0)
                 {

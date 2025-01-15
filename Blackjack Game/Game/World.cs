@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Blackjack_Game.PlayingCards;
+using Blackjack_Game.Players;
 
 namespace Blackjack_Game.Game
 {
