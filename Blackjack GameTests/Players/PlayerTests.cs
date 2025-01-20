@@ -24,7 +24,7 @@ namespace Blackjack_Game.Players.Tests
             Card nineOfHearts = new Card("Hearts", 9);
 
             //player1's aces should all be 1, and the score should be 17
-            Player player1 = new Player();
+            Player player1 = new UserPlayer();
 
             player1.RecieveCard(fiveOfHearts);
             player1.RecieveCard(aceOfSpades);
@@ -35,7 +35,7 @@ namespace Blackjack_Game.Players.Tests
             Assert.AreEqual(17, player1.GetScore());
 
             //player2's ace should be 11, and the score should be 21
-            Player player2 = new Player();
+            Player player2 = new UserPlayer();
 
             player2.RecieveCard(jackOfHearts);
             player2.RecieveCard(aceOfHearts);
@@ -44,7 +44,7 @@ namespace Blackjack_Game.Players.Tests
             Assert.AreEqual(21, player2.GetScore());
 
             //Player3's aces should be 1, and the score should be 22
-            Player player3 = new Player();
+            Player player3 = new UserPlayer();
 
             player3.RecieveCard(jackOfHearts);
             player3.RecieveCard(jackOfSpades);
@@ -55,7 +55,7 @@ namespace Blackjack_Game.Players.Tests
             Assert.AreEqual(22, player3.GetScore());
 
             //Player4's one ace should be 11 and the other ace should be 1, and the score should be 21
-            Player player4 = new Player();
+            Player player4 = new UserPlayer();
 
             player4.RecieveCard(aceOfHearts);
             player4.RecieveCard(aceOfSpades);
@@ -65,7 +65,7 @@ namespace Blackjack_Game.Players.Tests
             Assert.AreEqual (21, player4.GetScore());
 
             //Player5's one ace should be 11 and the other ace should be 1, and the score should be 17
-            Player player5 = new Player();
+            Player player5 = new UserPlayer();
 
             player5.RecieveCard(aceOfSpades);
             player5.RecieveCard(aceOfHearts);
@@ -73,6 +73,30 @@ namespace Blackjack_Game.Players.Tests
             
             Console.WriteLine("Player5: " + player5.GetScore());    
             Assert.AreEqual(17, player5.GetScore());
+        }
+
+        //tests that the player is able to empty (and refill) their hand successfully
+        [TestMethod()]
+        public void EmptyHandTest()
+        {
+            Player player = new UserPlayer();
+            Card card = new Card("Hearts", 10);
+            Card card2 = new Card("Hearts", 5);
+
+            player.RecieveCard(card);
+
+            Assert.AreEqual(10, player.GetScore());
+
+            player.ResetRound();
+            player.RecieveCard(card);
+            player.RecieveCard(card2);
+
+            Assert.AreEqual(15, player.GetScore());
+
+            player.ResetRound();
+            player.RecieveCard(card2);
+
+            Assert.AreEqual(5, player.GetScore());
         }
     }
 }

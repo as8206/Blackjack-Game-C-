@@ -8,9 +8,11 @@ using Blackjack_Game.PlayingCards;
 
 namespace Blackjack_Game.Players
 {
-    internal class Player
+    internal abstract class Player
     {
-        private List<Card> hand = [];
+        protected List<Card> hand = [];
+        protected bool busted = false;
+        protected bool stayed = false;
 
         internal Player()
         {
@@ -22,6 +24,7 @@ namespace Blackjack_Game.Players
             hand.Add(card);
         }
 
+        //returns the players score as an int
         public int GetScore()
         {
             int score = 0;
@@ -64,5 +67,22 @@ namespace Blackjack_Game.Players
 
             return score;
         }
+
+        //empties the players hand and resets both busted, and stayed booleans to reset the round
+        public void ResetRound()
+        {
+            hand = [];
+            busted = false;
+            stayed = false;
+        }
+
+        public bool GetBusted() => busted;
+
+        public bool GetStayed() => stayed;
+
+        public abstract void PrintHand();
+
+        public abstract bool HitOrStay(Deck deck);
+        
     }
 }
